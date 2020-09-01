@@ -1,0 +1,15 @@
+.block-sidenav {
+    width: 250px;
+}
+
+.burger {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 900px) {
+    .burger {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackBar-error {
+    white-space: pre-wrap;
+    color: #ff4040;
+  }
+  
+  .snackBar-warning {
+    white-space: pre-wrap;
+    color: #ff8b11;
+  }
+  
+  .snackBar-success {
+    white-space: pre-wrap;
+    color: #00ff00;
+  }

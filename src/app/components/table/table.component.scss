@@ -1,0 +1,17 @@
+$sizes: ('select', '10%'), ('position', '20%'), ('name', '20%'), ('weight', '20%'), ('symbol', '20%'), ('actions', '10%');
+
+@each $size in $sizes {
+    .col-#{nth($size, 1)} {
+        width: #{nth($size, 2)};
+    }
+}
+
+table {
+    width: 100%;
+}
+
+
+.block-search {
+    padding-bottom: 25px;
+    width: 20%;
+}

@@ -1,0 +1,19 @@
+.block-container {
+    position: absolute;
+    top: 64px;
+    bottom: 64px;
+    left: 0;
+    right: 0;
+}
+
+.block-main {
+    padding: 20px;
+    height: calc(100% - 128px);
+}
+
+@media screen and (max-width: 600px) {
+    .block-container {
+        top: 56px;
+        bottom: 56px;
+    }
+}

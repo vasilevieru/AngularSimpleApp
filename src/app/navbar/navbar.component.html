@@ -1,0 +1,69 @@
+<mat-toolbar class="header" color="primary">
+  <div class="burger">
+    <button mat-icon-button class="burger-icon" (click)="onToggleSidenav()" *ngIf="!(router.url === '/login')">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="navigation-menu">
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+      <li>
+        <a [routerLink]="['home']" [fragment]="'section1'">Item1</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['home']" [fragment]="'section2'">Item2</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['home']" [fragment]="'section3'">Item3</a>
+      </li>
+
+      <li *ngIf="isAuthenticated() | async">
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+
+      <li *ngIf="isAuthenticated() | async">
+        <a routerLink="/table">Table</a>
+      </li>
+
+      <li *ngIf="isAuthenticated() | async">
+        <a routerLink="/form">Form</a>
+      </li>
+    </ul>
+
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item routerLink="/item1">Item1</button>
+      <button mat-menu-item routerLink="/item2">Item2</button>
+      <button mat-menu-item routerLink="/item3">Item3</button>
+      <button mat-menu-item routerLink="/dashboard" *ngIf="isAuthenticated() | async">Dashboard</button>
+      <button mat-menu-item routerLink="/table" *ngIf="isAuthenticated() | async">Table</button>
+      <button mat-menu-item routerLink="/form" *ngIf="isAuthenticated() | async">Form</button>
+      <button mat-menu-item *ngIf="!(isAuthenticated() | async)">Login</button>
+      <button mat-menu-item *ngIf="isAuthenticated() | async">Logout</button>
+
+    </mat-menu>
+  </div>
+
+  <div fxFlex fxLayout fxLayoutAlign="flex-end">
+    <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+
+      <div class="burger-right">
+        <button mat-button class="burger-icon" [matMenuTriggerFor]="menu" *ngIf="!(router.url === '/login')">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <li *ngIf="!(isAuthenticated() | async)" class="right-button">
+        <a routerLink="/login">
+          Login
+        </a>
+      </li>
+
+      <li *ngIf="isAuthenticated() | async" class="right-button">
+        <a (click)="logout()">
+          Logout
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</mat-toolbar>

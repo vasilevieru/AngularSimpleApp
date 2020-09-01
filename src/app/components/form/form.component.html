@@ -1,0 +1,24 @@
+<div class="block-form">
+    <form [formGroup]="form" class="standart-form" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput formControlName="name" placeholder="Name" required autocomplete="off">
+            <mat-error *ngIf="form.get('name').hasError('required')">
+                This field is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email" required autocomplete="off">
+            <mat-error *ngIf="form.get('email').hasError('required')">
+                This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.get('email').hasError('pattern')">
+                Incorrect format.
+            </mat-error>
+        </mat-form-field>
+
+        <ckeditor [editor]="Editor" data="" formControlName="description"></ckeditor>
+
+        <button mat-raised-button type="submit" color="primary" class="submit-button">Submit</button>
+    </form>
+</div>
